@@ -8,8 +8,13 @@ namespace MusicCatalog.Model
 {
     public class Performance : MusicWork
     {
-        public Performance(int id, string name, string text, string picture, Genre genre, string format, DateTime publicationDate) : base(id, name, text, picture, genre, format, publicationDate)
+        public Performance(int id, string name, string text, string picture, int genreId, string format, DateTime publicationDate) : base(id, name, text, picture, genreId, format, publicationDate)
         {
+        }
+        public string ToCSV()
+        {
+            string baseCsv = base.StringToCsv();
+            return baseCsv;
         }
     }
 }
