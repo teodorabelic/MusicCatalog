@@ -52,7 +52,7 @@ namespace MusicCatalog.Model
 
         public String StringToCsv()
         {
-            return $"{name}|{songOfTheYearId}|{albumOfTheYearId}|{topArtistsId}";
+            return $"{id}|{name}|{songOfTheYearId}|{albumOfTheYearId}|{topArtistsId}";
         }
     }
 }

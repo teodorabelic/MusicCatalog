@@ -56,9 +56,7 @@ namespace MusicCatalog.Service
 
         public List<MusicCatalogApp> LoadFromFile()
         {
-
             return musicCatalogAppRepository.LoadFromFile();
-
         }
     }
 }

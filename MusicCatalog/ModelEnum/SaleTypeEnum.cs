@@ -8,6 +8,10 @@ namespace MusicCatalog.Enum
 {
     public class SaleTypeEnum
     {
-
+        public enum SaleType
+        {
+            Tickers, 
+            Album
+        }
     }
 }
