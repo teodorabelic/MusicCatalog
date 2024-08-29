@@ -18,6 +18,7 @@ namespace MusicCatalog.Model
             this.rank = rank;
             this.genre = genre;
             this.toDoList = toDoList;
+
         }
 
         public int Rank
