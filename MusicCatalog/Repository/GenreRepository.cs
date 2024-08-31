@@ -44,7 +44,7 @@ namespace MusicCatalog.Repository
         {
             try
             {
-                using (StreamWriter file = new StreamWriter("../../../Data/GenreFile.txt", false))
+                using (StreamWriter file = new StreamWriter("../../../Data/GenreFile.csv", false))
                 {
                     foreach (Genre genre in genres)
                     {
@@ -93,7 +93,7 @@ namespace MusicCatalog.Repository
         {
             List<Genre> genres = new List<Genre>();
 
-            string filename = "../../../Data/GenreFile.txt";
+            string filename = "../../../Data/GenreFile.csv";
 
             if (File.Exists(filename))
             {
