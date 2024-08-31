@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:MusicCatalog.View"
         mc:Ignorable="d"
             Title="Log in" Height="500" Width="400"
-    Closing="Window_Closing"
     WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
