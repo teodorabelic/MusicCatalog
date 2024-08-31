@@ -12,7 +12,7 @@ namespace MusicCatalog
         {
             base.OnStartup(e);
             StartWindow start = new StartWindow();
-            start.Show()
+            start.Show();
         }
     }
 }

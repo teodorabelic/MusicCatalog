@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MusicCatalog.Model;
+using MusicCatalog.ModelEnum;
 
 namespace MusicCatalog.Repository
 {
@@ -134,7 +135,7 @@ namespace MusicCatalog.Repository
                             surname: tokens[2],
                             genreHistory: genreHistory,
                             blocked: Boolean.Parse(tokens[5]),
-                            role: (ModelEnum.RoleEnum.Role)Enum.Parse(typeof(ModelEnum.RoleEnum.Role), tokens[7])
+                            role: (RoleEnum.Role)Enum.Parse(typeof(RoleEnum.Role), tokens[7])
                         );
                         admins.Add(admin);
                     }
