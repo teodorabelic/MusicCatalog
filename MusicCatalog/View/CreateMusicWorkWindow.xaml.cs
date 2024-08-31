@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace MusicCatalog.View
 {
-    /// <summary>
-    /// Interaction logic for CreateMusicWorkWindow.xaml
-    /// </summary>
+
     public partial class CreateMusicWorkWindow : Window
     {
         private MusicWorkController musicWorkController;
