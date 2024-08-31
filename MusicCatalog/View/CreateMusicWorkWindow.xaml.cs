@@ -62,7 +62,7 @@ namespace MusicCatalog.View
                     id: 0, 
                     title: title,
                     artist: artist,
-                    text: text,
+                    lyrics: text,
                     picture: picture,
                     genreId: genreId,
                     format: format,
