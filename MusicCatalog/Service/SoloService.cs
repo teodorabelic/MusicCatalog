@@ -13,7 +13,7 @@ namespace MusicCatalog.Service
         // Private constructor to initialize the SoloRepository with a file path
         private SoloService(string soloFilePath)
         {
-            soloRepository = new SoloRepository();
+            soloRepository = new SoloRepository(soloFilePath);
         }
 
         public static SoloService GetInstance(string soloFilePath)

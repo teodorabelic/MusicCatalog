@@ -6,7 +6,7 @@ namespace MusicCatalog.Model
 {
     public class Band : Artist
     {
-        public Band(int id, string name, List<int> participants, DateTime startDate, ProfessionEnum profession, string biography, string picture)
+        public Band(int id, string name, List<int> participants, DateTime startDate, ProfessionEnum.Profession profession, string biography, string picture)
             : base(id, name, participants, startDate, profession, biography, picture)
         {
         }

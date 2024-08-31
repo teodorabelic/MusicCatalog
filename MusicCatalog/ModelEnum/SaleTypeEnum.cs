@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicCatalog.Enum
+namespace MusicCatalog.ModelEnum
 {
     public class SaleTypeEnum
     {

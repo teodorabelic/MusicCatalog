@@ -13,7 +13,7 @@ namespace MusicCatalog.Service
         // Private constructor to initialize the BandRepository with a file path
         private BandService(string bandFilePath)
         {
-            bandRepository = new BandRepository();
+            bandRepository = new BandRepository(bandFilePath);
         }
 
         public static BandService GetInstance(string bandFilePath)
