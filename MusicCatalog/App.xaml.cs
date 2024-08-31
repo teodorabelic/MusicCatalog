@@ -11,9 +11,8 @@ namespace MusicCatalog
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
             StartWindow start = new StartWindow();
-            start.Show();
+            start.Show()
         }
     }
 }

@@ -7,15 +7,44 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="DisplayMusicWork" Height="600" Width="800">
-    <Grid>
-        <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="ExtraBold"/>
-        <Label x:Name="lblArtist" Content="Artist" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Image x:Name="imgPhoto" HorizontalAlignment="Left" Height="200" Width="200" Margin="550,50,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblFormat" Content="Format" HorizontalAlignment="Left" Margin="50,150,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
-        <Label x:Name="lblGenre" Content="Genre" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
-        <Label x:Name="lblPublished" Content="Published" HorizontalAlignment="Left" Margin="50,250,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
-        <Label Content="Lyrics: " HorizontalAlignment="Left" Margin="50,300,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
-        <Label x:Name="lblLyrics" Content="Lyrics" HorizontalAlignment="Left" Margin="50,330,0,0" VerticalAlignment="Top" FontSize="18"/>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Background="LightGray" Width="800" Height="600">
+            <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" Margin="80,50,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="ExtraBold"/>
+            <Label x:Name="lblArtist" Content="Artist" HorizontalAlignment="Left" Margin="80,100,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Image x:Name="imgPhoto" HorizontalAlignment="Left" Height="200" Width="200" Margin="480,60,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblFormat" Content="Format" HorizontalAlignment="Left" Margin="80,180,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
+            <Label x:Name="lblGenre" Content="Genre" HorizontalAlignment="Left" Margin="80,210,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
+            <Label x:Name="lblPublished" Content="Published" HorizontalAlignment="Left" Margin="80,240,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
+            <Label Content="Lyrics: " HorizontalAlignment="Left" Margin="80,300,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
+            <!-- ScrollViewer for Lyrics with fixed height -->
+            <ScrollViewer x:Name="scrollViewerLyrics"
+                          HorizontalAlignment="Left" 
+                          Margin="100,340,0,0" 
+                          VerticalAlignment="Top" 
+                          Width="500" 
+                          Height="150" 
+                          VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="tbLyrics" 
+                           Text="Lyrics" 
+                           FontSize="18" 
+                           TextWrapping="Wrap"/>
+            </ScrollViewer>
 
-    </Grid>
+            <Button x:Name="btnShowMore" 
+                    Content="Show More" 
+                    HorizontalAlignment="Left" 
+                    Margin="150,450,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="100" 
+                    Click="btnShowMore_Click"/>
+            <Button x:Name="btnShowLess" 
+                    Content="Show Less" 
+                    HorizontalAlignment="Left" 
+                    Margin="150,500,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="100" 
+                    Click="btnShowLess_Click"
+                    Visibility="Collapsed"/>
+        </Grid>
+    </ScrollViewer>
 </Window>
