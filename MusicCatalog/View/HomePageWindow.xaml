@@ -11,16 +11,9 @@
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="700,50,0,0" VerticalAlignment="Top" Width="70"/>
         <Label Content="Recommended music works for you:" HorizontalAlignment="Left" Margin="45,130,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label x:Name="lblMessage" Content="" Visibility="Collapsed" Foreground="Red" FontSize="10" Margin="45, 160, 0, 0"/>
-        <Rectangle HorizontalAlignment="Left" Height="193" Margin="45,199,0,0" Stroke="Black" VerticalAlignment="Top" Width="725"/>
-        <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" Margin="60,200,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
-        <Label x:Name="lblArtist" Content="Artist" HorizontalAlignment="Left" Margin="60,230,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Image x:Name="imgCover" Height="110" Width="110" Margin="60,270,615,0" VerticalAlignment="Top"/>
-        <Label Content="Genre:" HorizontalAlignment="Left" Margin="320,250,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label x:Name="lblGenre" Content="Genre" HorizontalAlignment="Left" Margin="400,250,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Format:" HorizontalAlignment="Left" Margin="320,280,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label x:Name="lblFormat" Content="Format" HorizontalAlignment="Left" Margin="400,280,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Published:" HorizontalAlignment="Left" Margin="320,310,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label x:Name="lblPublished" Content="Published" HorizontalAlignment="Left" Margin="400,310,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button x:Name="btnViewMore" Content="View More" HorizontalAlignment="Left" Margin="680,360,0,0" VerticalAlignment="Top"/>
+
+        <ScrollViewer x:Name="scrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="45,199,45,45">
+            <StackPanel x:Name="spMusicWorks" Orientation="Vertical"/>
+        </ScrollViewer>
     </Grid>
 </Window>
