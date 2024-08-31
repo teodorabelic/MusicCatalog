@@ -1,0 +1,6 @@
+﻿1|Rock
+2|Jazz
+3|Classical
+4|Hip-Hop
+5|Pop
+6|Folk

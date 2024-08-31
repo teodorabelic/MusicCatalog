@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using MusicCatalog.View;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -9,6 +10,8 @@ namespace MusicCatalog
     /// </summary>
     public partial class App : Application
     {
+        CreateMusicWorkWindow createMusicWorkWindow = new CreateMusicWorkWindow();
+        createMusicWorkWindow.Show(); 
     }
 
 }
