@@ -13,11 +13,11 @@ namespace MusicCatalog.Model
         private String name;
         private List<int> participants;
         private DateTime startDate;
-        private ProfessionEnum profession;
+        private ProfessionEnum.Profession profession;
         private String biography;
         private String picture;
 
-        public Artist(int id, String name, List<int> participants, DateTime startDate, ProfessionEnum profession, String biography, String picture)
+        public Artist(int id, String name, List<int> participants, DateTime startDate, ProfessionEnum.Profession profession, String biography, String picture)
         {
             this.id = id;
             this.name = name;
@@ -52,7 +52,7 @@ namespace MusicCatalog.Model
             set { startDate = value; }
         }
 
-        public ProfessionEnum Profession
+        public ProfessionEnum.Profession Profession
         {
             get { return profession; }
             set { profession = value; }

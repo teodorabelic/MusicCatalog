@@ -14,7 +14,7 @@ namespace MusicCatalog.Service
             musicWorkRepository = MusicWorkRepository.GetInstance();
         }
 
-        public List<MusicWork> GetAllMusicWorks()
+        public List<MusicWork> GetAll()
         {
             return musicWorkRepository.GetAll();
         }

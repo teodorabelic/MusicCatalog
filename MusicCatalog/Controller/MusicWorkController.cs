@@ -14,9 +14,9 @@ namespace MusicCatalog.Controller
             musicWorkService = new MusicWorkService();
         }
 
-        public List<MusicWork> GetAllMusicWorks()
+        public List<MusicWork> GetAll()
         {
-            return musicWorkService.GetAllMusicWorks();
+            return musicWorkService.GetAll();
         }
 
         public MusicWork GetMusicWorkById(int id)

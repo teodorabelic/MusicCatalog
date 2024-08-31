@@ -13,7 +13,7 @@ namespace MusicCatalog.Service
         // Private constructor to initialize the WorkerRepository with a file path
         private WorkerService(string workerFilePath)
         {
-            workerRepository = new WorkerRepository();
+            workerRepository = new WorkerRepository(workerFilePath);
         }
 
         public static WorkerService GetInstance(string workerFilePath)

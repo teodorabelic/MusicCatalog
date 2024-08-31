@@ -76,7 +76,7 @@ namespace MusicCatalog.Repository
 
             if (oldSong != null)
             {
-                oldSong.Name = song.Name;
+                oldSong.Title = song.Title;
                 oldSong.Text = song.Text;
                 oldSong.Picture = song.Picture;
                 oldSong.GenreId = song.GenreId;
@@ -115,11 +115,12 @@ namespace MusicCatalog.Repository
                         Song song = new Song(
                             id: int.Parse(tokens[0]),
                             name: tokens[1],
-                            text: tokens[2],
-                            picture: tokens[3],
-                            genreId: int.Parse(tokens[4]),
-                            format: tokens[5],
-                            publicationDate: DateTime.Parse(tokens[6])
+                            artist: tokens[2],
+                            text: tokens[3],
+                            picture: tokens[4],
+                            genreId: int.Parse(tokens[5]),
+                            format: tokens[6],
+                            publicationDate: DateTime.Parse(tokens[7])
                         );
 
                         songs.Add(song);
