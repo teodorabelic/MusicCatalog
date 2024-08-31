@@ -41,5 +41,10 @@ namespace MusicCatalog.Service
         {
             adminRepository.Delete(id);
         }
+        public int GenerateId()
+        {
+            int id = adminRepository.GenerateId();
+            return id;
+        }
     }
 }
