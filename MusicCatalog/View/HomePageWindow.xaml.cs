@@ -162,5 +162,17 @@ namespace MusicCatalog.View
             // Handle the "View More" button click event
             MessageBox.Show($"View more details for: {musicWork.Title}");
         }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string searchText = tbSearch.Text.ToLower();
+
+            var filteredMusicWorks = musicWorks.Where(mw =>
+            mw.Title.ToLower().Contains(searchText) ||
+            mw.Artist.ToLower().Contains(searchText)).ToList();
+
+            LoadDataFromCSV(filteredMusicWorks);
+        }
+
     }
 }
