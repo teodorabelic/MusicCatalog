@@ -12,8 +12,8 @@ namespace MusicCatalog
         {
             base.OnStartup(e);
 
-            HomePageWindow homePage = new HomePageWindow();
-            homePage.Show();
+            StartWindow start = new StartWindow();
+            start.Show();
         }
     }
 }

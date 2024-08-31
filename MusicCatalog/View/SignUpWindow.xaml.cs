@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MusicCatalog.Controller;
+using MusicCatalog.Model;
+using MusicCatalog.ModelEnum;
 
 namespace MusicCatalog.View
 {
@@ -19,9 +22,27 @@ namespace MusicCatalog.View
     /// </summary>
     public partial class SignUpWindow : Window
     {
+        private UserController userController = new UserController();
+        StartWindow startWindow = new StartWindow();
         public SignUpWindow()
         {
             InitializeComponent();
         }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            List<Genre> genreHistory = new List<Genre>();
+            RoleEnum.Role role = RoleEnum.Role.User;
+            userController.CreateUser(tbName.Text, tbSurname.Text, tbEmail.Text,
+                    tbPassword.Text, genreHistory, role);
+
+            startWindow.Show();
+            this.Hide();
+
+        }
+            
+
+        
     }
 }
+
