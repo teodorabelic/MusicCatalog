@@ -8,7 +8,7 @@ namespace MusicCatalog.Model
 {
     public class Album : MusicWork
     {
-        public Album(int id, string name, string artist, string text, string picture, int genreId, string format, DateTime publicationDate) : base(id, name, artist, text, picture, genreId, format, publicationDate)
+        public Album(int id, string name, string artist, string lyrics, string picture, int genreId, string format, DateTime publicationDate) : base(id, name, artist, lyrics, picture, genreId, format, publicationDate)
         {
         }
         public string ToCSV()
