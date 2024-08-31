@@ -1,12 +1,14 @@
-﻿using System;
+﻿using MusicCatalog.ModelEnum;
+using System;
 using System.Collections.Generic;
+using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicCatalog.Model
 {
-    internal class User
+    public class User
     {
         private int id;
         private string name;
@@ -15,6 +17,7 @@ namespace MusicCatalog.Model
         private string password;
         private Boolean blocked;
         private List<Genre> genreHistory;
+        private RoleEnum.Role role;
 
         public User()
         {
@@ -22,7 +25,7 @@ namespace MusicCatalog.Model
         }
 
         // Konstruktor sa parametrima
-        public User(int id, string name, string surname, string email, string password, bool blocked, List<Genre> genreHistory)
+        public User(int id, string name, string surname, string email, string password, bool blocked, List<Genre> genreHistory, RoleEnum.Role role)
         {
             this.id = id;
             this.name = name;
@@ -31,6 +34,7 @@ namespace MusicCatalog.Model
             this.password = password;
             this.blocked = blocked;
             this.genreHistory = genreHistory ?? new List<Genre>();
+            this.role = role;
         }
 
         // Getteri i setteri za sve privatne atribute
@@ -75,11 +79,13 @@ namespace MusicCatalog.Model
             get { return genreHistory; }
             set { genreHistory = value; }
         }
+        public RoleEnum.Role Role
+            { get { return role; } set { role = value; } }
 
         public string StringToCsv()
         {
             string genres = string.Join(",", genreHistory);
-            return id + "|" + name + "|" + surname + "|" + email + "|" + password + "|" + blocked + "|" + genres;
+            return id + "|" + name + "|" + surname + "|" + email + "|" + password + "|" + blocked + "|" + genres + "|" + role;
         }
     }
 }

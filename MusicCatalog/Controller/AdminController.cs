@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MusicCatalog.Model;
+using MusicCatalog.ModelEnum;
 using MusicCatalog.Service;
 
 namespace MusicCatalog.Controller
@@ -19,9 +20,10 @@ namespace MusicCatalog.Controller
 
         public void CreateAdmin(string email, string password, string name, string surname, List<Genre> genreHistory, bool blocked)
         {
-            Admin newAdmin = new Admin(0, name, surname, email, password, blocked, genreHistory);
+            RoleEnum.Role role = RoleEnum.Role.Admin;
+            int id = adminService.GenerateId();
+            Admin newAdmin = new Admin(id, name, surname, email, password, blocked, genreHistory, role);
             adminService.CreateAdmin(newAdmin);
-            Console.WriteLine("Admin created successfully.");
         }
 
         public void UpdateAdmin(int id, string email, string password, string name, string surname, List<Genre> genreHistory, bool blocked)
@@ -37,7 +39,7 @@ namespace MusicCatalog.Controller
                 existingAdmin.Blocked = blocked;
 
                 adminService.UpdateAdmin(existingAdmin);
-                Console.WriteLine("Admin updated successfully.");
+                
             }
             else
             {
@@ -48,28 +50,23 @@ namespace MusicCatalog.Controller
         public void DeleteAdmin(int id)
         {
             adminService.DeleteAdmin(id);
-            Console.WriteLine("Admin deleted successfully.");
         }
 
         public void GetAllAdmins()
         {
             var admins = adminService.GetAllAdmins();
-            foreach (var admin in admins)
-            {
-                Console.WriteLine($"Admin: {admin.Name} {admin.Surname}");
-            }
         }
 
-        public void GetAdminById(int id)
+        public Admin GetAdminById(int id)
         {
-            var admin = adminService.GetAdminById(id);
+            Admin admin = adminService.GetAdminById(id);
             if (admin != null)
             {
-                Console.WriteLine($"Admin found: {admin.Name} {admin.Surname}");
+                return admin;
             }
             else
             {
-                Console.WriteLine("Admin not found.");
+                return null;
             }
         }
     }

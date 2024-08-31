@@ -38,5 +38,10 @@ namespace MusicCatalog.Controller
         {
             musicWorkService.DeleteMusicWork(id);
         }
+
+        public string GetProjectDirectory()
+        {
+            return musicWorkService.GetProjectDirectory();
+        }
     }
 }

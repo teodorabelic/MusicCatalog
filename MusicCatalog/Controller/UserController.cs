@@ -1,4 +1,5 @@
 ﻿using MusicCatalog.Model;
+using MusicCatalog.ModelEnum;
 using MusicCatalog.Service;
 using System;
 using System.Collections.Generic;
@@ -32,34 +33,36 @@ namespace MusicCatalog.Controller
             return user;
         }
 
-        public void CreateUser(string name, string surname, string email, string password, List<Genre> genreHistory)
+        public void CreateUser(string name, string surname, string email, string password, List<Genre> genreHistory, RoleEnum.Role role)
         {
-            userService.CreateUser(name, surname, email, password, genreHistory);
-            Console.WriteLine("User successfully created.");
+            userService.CreateUser(name, surname, email, password, genreHistory, role);
         }
 
-        public void UpdateUser(int id, string name, string surname, string email, string password, bool blocked, List<Genre> genreHistory)
+        public void UpdateUser(int id, string name, string surname, string email, string password, bool blocked, List<Genre> genreHistory, RoleEnum.Role role)
         {
-            userService.UpdateUser(id, name, surname, email, password, blocked, genreHistory);
-            Console.WriteLine("User successfully updated.");
+            userService.UpdateUser(id, name, surname, email, password, blocked, genreHistory, role);
         }
 
         public void DeleteUser(int id)
         {
             userService.DeleteUser(id);
-            Console.WriteLine("User successfully deleted.");
         }
 
         public void BlockUser(int id)
         {
             userService.BlockUser(id);
-            Console.WriteLine($"User with ID {id} has been blocked.");
         }
 
         public void UnblockUser(int id)
         {
             userService.UnblockUser(id);
-            Console.WriteLine($"User with ID {id} has been unblocked.");
         }
+
+        public (object, string) IsLoggedIn(string email, string password)
+        {
+            return userService.IsLoggedIn(email, password);
+        }
+
+       
     }
 }

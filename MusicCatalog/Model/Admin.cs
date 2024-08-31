@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicCatalog.ModelEnum;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace MusicCatalog.Model
 {
-    internal class Admin : User
+    public class Admin : User
     {
         public Admin()
         {
         }
 
-        public Admin(int id, string name, string surname, string email, string password, bool blocked, List<Genre> genreHistory)
-            : base(id, name, surname, email, password, blocked, genreHistory)
+        public Admin(int id, string name, string surname, string email, string password, bool blocked, List<Genre> genreHistory, RoleEnum.Role role)
+            : base(id, name, surname, email, password, blocked, genreHistory, role)
         {
         }
         public string ToCSV()

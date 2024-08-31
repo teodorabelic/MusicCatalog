@@ -13,18 +13,18 @@ namespace MusicCatalog.Model
         private int id;
         private String title;
         private String artist;
-        private String text;
+        private String lyrics;
         private String picture;
         private int genreId;
         private String format;
         private DateTime publicationDate;
 
-        public MusicWork(int id, string title, string artist, string text, string picture, int genreId, string format, DateTime publicationDate)
+        public MusicWork(int id, string title, string artist, string lyrics, string picture, int genreId, string format, DateTime publicationDate)
         {
             this.id = id;
             this.title = title;
             this.artist = artist;
-            this.text = text;
+            this.lyrics = lyrics;
             this.picture = picture;
             this.genreId = genreId;
             this.format = format;
@@ -48,10 +48,10 @@ namespace MusicCatalog.Model
             set { artist = value; }
         }
 
-        public string Text
+        public string Lyrics
         {
-            get { return text; }
-            set { text = value; }
+            get { return lyrics; }
+            set { lyrics = value; }
         }
 
         public string Picture
@@ -80,7 +80,7 @@ namespace MusicCatalog.Model
 
         public string StringToCsv()
         {
-            return id + "|" + title + "|" + artist + "|" + text + "|" + picture + "|" + genreId + "|" + format + "|" + publicationDate.ToString("yyyy-MM-dd");
+            return id + "|" + title + "|" + artist + "|" + lyrics + "|" + picture + "|" + genreId + "|" + format + "|" + publicationDate.ToString("yyyy-MM-dd");
         }
     }
 }

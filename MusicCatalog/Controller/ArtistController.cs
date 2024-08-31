@@ -11,7 +11,6 @@ namespace MusicCatalog.Controller
 
         public ArtistController(string artistFilePath, string soloFilePath, string bandFilePath, string workerFilePath)
         {
-            // Initialize ArtistService with file paths
             artistService = ArtistService.GetInstance(artistFilePath, soloFilePath, bandFilePath, workerFilePath);
         }
 
