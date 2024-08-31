@@ -18,14 +18,11 @@ using System.Windows.Shapes;
 
 namespace MusicCatalog.View
 {
-    /// <summary>
-    /// Interaction logic for StartWindow.xaml
-    /// </summary>
     public partial class StartWindow : Window
     {
         public List<User> users;
         public List<Admin> admins;
-        public static HomePageWindow homePageWindow;
+        public static HomePageRegisteredWindow homePageRegisteredWindow;
         public UserService userService;
         private UserController userController = new UserController();
         private AdminController adminController = new AdminController();
@@ -39,11 +36,10 @@ namespace MusicCatalog.View
         private void btnGuest_Click(object sender, RoutedEventArgs e)
         {
             {
-                HomePageWindow homePageWindow = new HomePageWindow();
-                homePageWindow.Show();
+                HomePageUnregisteredWindow homePageUnregisteredWindow = new HomePageUnregisteredWindow();
+                homePageUnregisteredWindow.Show();
                 this.Hide();
             }
-
         }
 
         private void btnSignUp_Click(object sender, RoutedEventArgs e)
@@ -53,7 +49,6 @@ namespace MusicCatalog.View
                 signUpWindow.Show();
                 this.Hide();
             }
-
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -61,7 +56,6 @@ namespace MusicCatalog.View
             User user = null;
             Admin admin = null;
             MusicEditor musicEditor = null;
-           
 
             string email = tbEmail.Text;
             string password = tbPassword.Password;
@@ -78,9 +72,9 @@ namespace MusicCatalog.View
                             user = person as User;
                             if (user != null)
                             {
-                                homePageWindow = new HomePageWindow();
+                                homePageRegisteredWindow = new HomePageRegisteredWindow();
                                 lblLogIn.Content = "";
-                                homePageWindow.Show();
+                                homePageRegisteredWindow.Show();
                                 this.Hide();
                                 tbClear();
                             }
@@ -91,9 +85,9 @@ namespace MusicCatalog.View
                             if (user != null)
                             {
                                 admin = adminController.GetAdminById(user.Id);
-                                homePageWindow = new HomePageWindow();
+                                homePageRegisteredWindow = new HomePageRegisteredWindow();
                                 lblLogIn.Content = "";
-                                homePageWindow.Show();
+                                homePageRegisteredWindow.Show();
                                 this.Hide();
                                 tbClear();
                             }
@@ -104,9 +98,9 @@ namespace MusicCatalog.View
                             if (user != null)
                             {
                                 musicEditor = musicEditorController.GetMusicEditorById(user.Id);
-                                homePageWindow = new HomePageWindow(); 
+                                homePageRegisteredWindow = new HomePageRegisteredWindow(); 
                                 lblLogIn.Content = "";
-                                homePageWindow.Show();
+                                homePageRegisteredWindow.Show();
                                 this.Hide();
                                 tbClear();
                             }

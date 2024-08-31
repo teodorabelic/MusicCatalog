@@ -17,9 +17,6 @@ using MusicCatalog.ModelEnum;
 
 namespace MusicCatalog.View
 {
-    /// <summary>
-    /// Interaction logic for SignUpWindow.xaml
-    /// </summary>
     public partial class SignUpWindow : Window
     {
         private UserController userController = new UserController();
@@ -40,9 +37,6 @@ namespace MusicCatalog.View
             this.Hide();
 
         }
-            
-
-        
     }
 }
 
