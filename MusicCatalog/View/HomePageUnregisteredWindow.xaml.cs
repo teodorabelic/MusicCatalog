@@ -9,12 +9,14 @@ using System.Windows.Media.Imaging;
 
 namespace MusicCatalog.View
 {
-    public partial class HomePageWindow : Window
+    public partial class HomePageUnregisteredWindow : Window
     {
         public List<MusicWork> musicWorks;
         private MusicWorkController musicWorkController = new MusicWorkController();
+        private GenreController genreController = new GenreController();
+        public Genre genre;
 
-        public HomePageWindow()
+        public HomePageUnregisteredWindow()
         {
             InitializeComponent();
             this.musicWorks = musicWorkController.GetAll();
@@ -83,9 +85,10 @@ namespace MusicCatalog.View
                 };
                 textPanel.Children.Add(lblArtist);
 
+                genre = genreController.GetGenreById(musicWork.GenreId);
                 Label lblGenre = new Label
                 {
-                    Content = "Genre: " + musicWork.GenreId.ToString(),
+                    Content = "Genre: " + genre.Type,
                     Margin = new Thickness(0, 0, 0, 5)
                 };
                 textPanel.Children.Add(lblGenre);
@@ -151,6 +154,11 @@ namespace MusicCatalog.View
         {
             DisplayMusicWorkWindow displayMusicWorkWindow = new DisplayMusicWorkWindow(musicWork);
             displayMusicWorkWindow.Show();
+        }
+
+        private void FindGenreById(int musicWorkId)
+        {
+
         }
     }
 }

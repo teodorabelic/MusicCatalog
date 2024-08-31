@@ -1,0 +1,19 @@
+﻿<Window x:Class="MusicCatalog.View.HomePageRegisteredWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Music Catalog Home Page" Height="600" Width="800">
+    <Grid>
+        <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Margin="45,50,0,0" VerticalAlignment="Top" Width="600" Height="25"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="700,50,0,0" VerticalAlignment="Top" Width="70"/>
+        <Label Content="Recommended music works for you:" HorizontalAlignment="Left" Margin="45,130,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lblMessage" Content="" Visibility="Collapsed" Foreground="Red" FontSize="10" Margin="45, 160, 0, 0"/>
+
+        <ScrollViewer x:Name="scrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="45,199,45,45">
+            <StackPanel x:Name="spMusicWorks" Orientation="Vertical"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
