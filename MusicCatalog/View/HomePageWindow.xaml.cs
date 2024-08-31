@@ -149,7 +149,8 @@ namespace MusicCatalog.View
 
         private void ViewMore_Click(MusicWork musicWork)
         {
-            MessageBox.Show($"View more details for: {musicWork.Title}");
+            DisplayMusicWorkWindow displayMusicWorkWindow = new DisplayMusicWorkWindow(musicWork);
+            displayMusicWorkWindow.Show();
         }
     }
 }
