@@ -76,7 +76,7 @@ namespace MusicCatalog.Repository
 
             if (oldPerformance != null)
             {
-                oldPerformance.Name = performance.Name;
+                oldPerformance.Title = performance.Title;
                 oldPerformance.Text = performance.Text;
                 oldPerformance.Picture = performance.Picture;
                 oldPerformance.GenreId = performance.GenreId;
@@ -115,11 +115,12 @@ namespace MusicCatalog.Repository
                         Performance performance = new Performance(
                             id: int.Parse(tokens[0]),
                             name: tokens[1],
-                            text: tokens[2],
-                            picture: tokens[3],
-                            genreId: int.Parse(tokens[4]),
-                            format: tokens[5],
-                            publicationDate: DateTime.Parse(tokens[6])
+                            artist: tokens[2],
+                            text: tokens[3],
+                            picture: tokens[4],
+                            genreId: int.Parse(tokens[5]),
+                            format: tokens[6],
+                            publicationDate: DateTime.Parse(tokens[7])
                         );
 
                         performances.Add(performance);

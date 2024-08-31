@@ -6,7 +6,7 @@ namespace MusicCatalog.Model
 {
     public class Solo : Artist
     {
-        public Solo(int id, string name, DateTime startDate, ProfessionEnum profession, string biography, string picture)
+        public Solo(int id, string name, DateTime startDate, ProfessionEnum.Profession profession, string biography, string picture)
             : base(id, name, new List<int>(), startDate, profession, biography, picture)
         {
         }

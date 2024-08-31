@@ -5,7 +5,7 @@ namespace MusicCatalog.Model
 {
     public class Worker : Artist
     {
-        public Worker(int id, string name, DateTime startDate, ProfessionEnum profession, string biography, string picture)
+        public Worker(int id, string name, DateTime startDate, ProfessionEnum.Profession profession, string biography, string picture)
             : base(id, name, new List<int>(), startDate, profession, biography, picture)
         {
         }

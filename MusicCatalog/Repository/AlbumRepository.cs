@@ -76,7 +76,7 @@ namespace MusicCatalog.Repository
 
             if (oldAlbum != null)
             {
-                oldAlbum.Name = album.Name;
+                oldAlbum.Title = album.Title;
                 oldAlbum.Text = album.Text;
                 oldAlbum.Picture = album.Picture;
                 oldAlbum.GenreId = album.GenreId;
@@ -107,7 +107,7 @@ namespace MusicCatalog.Repository
                     while ((line = reader.ReadLine()) != null)
                     {
                         string[] tokens = line.Split('|');
-                        if (tokens.Length < 7)
+                        if (tokens.Length < 8)
                         {
                             continue;
                         }
@@ -115,11 +115,12 @@ namespace MusicCatalog.Repository
                         Album album = new Album(
                             id: int.Parse(tokens[0]),
                             name: tokens[1],
-                            text: tokens[2],
-                            picture: tokens[3],
-                            genreId: int.Parse(tokens[4]),
-                            format: tokens[5],
-                            publicationDate: DateTime.Parse(tokens[6])
+                            artist: tokens[2],
+                            text: tokens[3],
+                            picture: tokens[4],
+                            genreId: int.Parse(tokens[5]),
+                            format: tokens[6],
+                            publicationDate: DateTime.Parse(tokens[7])
                         );
 
                         albums.Add(album);

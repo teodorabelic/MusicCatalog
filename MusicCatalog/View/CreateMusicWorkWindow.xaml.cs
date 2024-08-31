@@ -50,7 +50,8 @@ namespace MusicCatalog.View
         {
             try
             {
-                string name = musicWorkNameTextBox.Text;
+                string title = musicWorkTitleTextBox.Text;
+                string artist = artistTextBox.Text;
                 string text = textTextBox.Text;
                 string picture = pictureTextBox.Text;
                 int genreId = (int)genreComboBox.SelectedValue;
@@ -59,7 +60,8 @@ namespace MusicCatalog.View
 
                 MusicWork newMusicWork = new MusicWork(
                     id: 0, 
-                    name: name,
+                    title: title,
+                    artist: artist,
                     text: text,
                     picture: picture,
                     genreId: genreId,
