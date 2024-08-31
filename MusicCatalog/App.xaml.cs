@@ -1,4 +1,4 @@
-﻿using MusicCatalog.View;
+using MusicCatalog.View;
 using System.Configuration;
 using System.Data;
 using System.Windows;
