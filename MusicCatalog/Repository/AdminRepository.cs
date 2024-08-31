@@ -37,7 +37,7 @@ namespace MusicCatalog.Repository
             return admins.FirstOrDefault(admin => admin.Id == id);
         }
 
-        private int GenerateId()
+        public int GenerateId()
         {
             return admins.Any() ? admins.Max(admin => admin.Id) + 1 : 1;
         }
@@ -110,12 +110,11 @@ namespace MusicCatalog.Repository
                     {
                         string[] tokens = line.Split('|');
 
-                        if (tokens.Length < 7) 
+                        if (tokens.Length < 8) 
                         {
                             continue;
                         }
 
-                        // Parsiranje istorije žanrova
                         List<Genre> genreHistory = new List<Genre>();
                         string[] genreTokens = tokens[6].Split(',');
                         foreach (var genreToken in genreTokens)
@@ -127,15 +126,15 @@ namespace MusicCatalog.Repository
                             }
                         }
 
-                        // Kreiranje Admin objekta sa odgovarajućim parametrima, uključujući id
                         Admin admin = new Admin(
-                            id: int.Parse(tokens[0]),  // Parsiranje id-a
+                            id: int.Parse(tokens[0]),  
                             email: tokens[3],
                             password: tokens[4],
                             name: tokens[1],
                             surname: tokens[2],
                             genreHistory: genreHistory,
-                            blocked: Boolean.Parse(tokens[5])
+                            blocked: Boolean.Parse(tokens[5]),
+                            role: (ModelEnum.RoleEnum.Role)Enum.Parse(typeof(ModelEnum.RoleEnum.Role), tokens[7])
                         );
                         admins.Add(admin);
                     }

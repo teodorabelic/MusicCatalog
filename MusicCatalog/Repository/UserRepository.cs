@@ -84,6 +84,7 @@ namespace MusicCatalog.Repository
                 oldUser.Password = user.Password;
                 oldUser.Blocked = user.Blocked;
                 oldUser.GenreHistory = user.GenreHistory;
+                oldUser.Role = user.Role;
                 Save();
             }
         }
@@ -111,7 +112,7 @@ namespace MusicCatalog.Repository
                     {
                         string[] tokens = line.Split('|');
 
-                        if (tokens.Length < 7)
+                        if (tokens.Length < 8)
                         {
                             continue;
                         }
@@ -134,8 +135,8 @@ namespace MusicCatalog.Repository
                             email: tokens[3],
                             password: tokens[4],
                             blocked: Boolean.Parse(tokens[5]),
-                            genreHistory: genreHistory
-                        );
+                            genreHistory: genreHistory,
+                            role: (ModelEnum.RoleEnum.Role)Enum.Parse(typeof(ModelEnum.RoleEnum.Role), tokens[7]));
                         users.Add(user);
                     }
                 }

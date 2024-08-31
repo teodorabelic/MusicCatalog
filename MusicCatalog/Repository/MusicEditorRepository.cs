@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MusicCatalog.ModelEnum.RoleEnum;
 
 namespace MusicCatalog.Repository
 {
@@ -114,7 +115,7 @@ namespace MusicCatalog.Repository
                     {
                         string[] tokens = line.Split('|');
 
-                        if (tokens.Length < 9)
+                        if (tokens.Length < 10)
                         {
                             continue;
                         }
@@ -125,7 +126,7 @@ namespace MusicCatalog.Repository
                             return new Genre(int.Parse(genreData[0]), genreData[1]);
                         }).ToList();
 
-                        List<ReviewAndRating> toDoList = tokens[8].Split(',').Select(reviewToken =>
+                        List<ReviewAndRating> toDoList = tokens[10].Split(',').Select(reviewToken =>
                         {
                             var reviewData = reviewToken.Split('-');
                             return new ReviewAndRating(
@@ -145,8 +146,9 @@ namespace MusicCatalog.Repository
                             password: tokens[4],
                             blocked: bool.Parse(tokens[5]),
                             genreHistory: genreHistory,
-                            rank: int.Parse(tokens[7]),
-                            genre: new Genre(int.Parse(tokens[6].Split('-')[0]), tokens[6].Split('-')[1]),
+                            role: (ModelEnum.RoleEnum.Role)Enum.Parse(typeof(ModelEnum.RoleEnum.Role), tokens[7]),
+                            rank: int.Parse(tokens[8]),
+                            genre: new Genre(int.Parse(tokens[9].Split('-')[0]), tokens[9].Split('-')[1]),
                             toDoList: toDoList
                         );
 
