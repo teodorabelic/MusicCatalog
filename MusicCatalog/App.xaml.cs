@@ -12,7 +12,7 @@ namespace MusicCatalog
         {
             base.OnStartup(e);
 
-            HomePageWindow homePage = new HomePageWindow();
+            HomePageUnregisteredWindow homePage = new HomePageUnregisteredWindow();
             homePage.Show();
         }
     }
