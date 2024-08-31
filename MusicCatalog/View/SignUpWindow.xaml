@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicCatalog.View"
         mc:Ignorable="d"
-        Title="SignUpWindow" Height="450" Width="800">
+            WindowStartupLocation="CenterScreen"
+    Loaded="SignUpWindow_Load"
+    Title="Sign up" Height="400" Width="400">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Create your account" HorizontalAlignment="Center" Height="35" Margin="0,29,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Name: " HorizontalAlignment="Left" Height="35" Margin="30,80,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Surname: " HorizontalAlignment="Left" Height="35" Margin="30,130,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Email: " HorizontalAlignment="Left" Height="35" Margin="30,180,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Password: " HorizontalAlignment="Left" Height="35" Margin="30,230,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Right" Height="35" Margin="0,80,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="20"/>
+        <TextBox x:Name="tbSurname" HorizontalAlignment="Right" Height="35" Margin="0,130,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="20"/>
+         <TextBox x:Name="tbEmail" HorizontalAlignment="Right" Height="35" Margin="0,180,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="20"/>
+        <TextBox x:Name="tbPassword" HorizontalAlignment="Right" Height="35" Margin="0,230,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="20"/>
+        <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Center" Height="35" Margin="0,300,0,0" VerticalAlignment="Top" Width="80" FontSize="20" Click="btnSubmit_Click"/>
+        <Label x:Name="lblMissingData" Content="" HorizontalAlignment="Center" Margin="0,540,0,0" VerticalAlignment="Top" FontSize="20"/>
     </Grid>
 </Window>
