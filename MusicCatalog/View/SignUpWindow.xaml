@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:MusicCatalog.View"
         mc:Ignorable="d"
             WindowStartupLocation="CenterScreen"
-    Loaded="SignUpWindow_Load"
     Title="Sign up" Height="400" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>

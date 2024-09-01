@@ -1,4 +1,4 @@
-﻿using MusicCatalog.Controller;
+using MusicCatalog.Controller;
 using MusicCatalog.Model;
 using System;
 using System.Collections.Generic;
@@ -154,11 +154,6 @@ namespace MusicCatalog.View
         {
             DisplayMusicWorkWindow displayMusicWorkWindow = new DisplayMusicWorkWindow(musicWork);
             displayMusicWorkWindow.Show();
-        }
-
-        private void FindGenreById(int musicWorkId)
-        {
-
         }
     }
 }

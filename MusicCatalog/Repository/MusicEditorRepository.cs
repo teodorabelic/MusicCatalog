@@ -115,28 +115,19 @@ namespace MusicCatalog.Repository
                     {
                         string[] tokens = line.Split('|');
 
-                        if (tokens.Length < 10)
+                        if (tokens.Length != 11)
                         {
                             continue;
                         }
 
-                        List<Genre> genreHistory = tokens[6].Split(',').Select(genreToken =>
+                        // Parse genreHistory as a list of Genre objects
+                        List<Genre> genreHistory = tokens[6].Split(',').Select(id =>
                         {
-                            var genreData = genreToken.Split('-');
-                            return new Genre(int.Parse(genreData[0]), genreData[1]);
+                            return new Genre(int.Parse(id), "Unknown"); // Assuming genre names are not provided; use a default name or adjust if necessary
                         }).ToList();
 
-                        List<ReviewAndRating> toDoList = tokens[10].Split(',').Select(reviewToken =>
-                        {
-                            var reviewData = reviewToken.Split('-');
-                            return new ReviewAndRating(
-                                int.Parse(reviewData[0]),
-                                reviewData[1],
-                                int.Parse(reviewData[2]),
-                                int.Parse(reviewData[3]),
-                                bool.Parse(reviewData[4])
-                            );
-                        }).ToList();
+                        // Handle toDoList if it is in a different format or if it's not present, initialize as empty list
+                        List<ReviewAndRating> toDoList = new List<ReviewAndRating>(); // Adjust if you have a specific format for this field
 
                         MusicEditor editor = new MusicEditor(
                             id: int.Parse(tokens[0]),
@@ -148,7 +139,7 @@ namespace MusicCatalog.Repository
                             genreHistory: genreHistory,
                             role: (ModelEnum.RoleEnum.Role)Enum.Parse(typeof(ModelEnum.RoleEnum.Role), tokens[7]),
                             rank: int.Parse(tokens[8]),
-                            genre: new Genre(int.Parse(tokens[9].Split('-')[0]), tokens[9].Split('-')[1]),
+                            genre: new Genre(int.Parse(tokens[9]), "Unknown"), // Assuming genre information; adjust if necessary
                             toDoList: toDoList
                         );
 
@@ -158,5 +149,6 @@ namespace MusicCatalog.Repository
             }
             return editors;
         }
+
     }
 }

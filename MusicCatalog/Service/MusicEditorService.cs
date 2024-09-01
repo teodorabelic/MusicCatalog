@@ -17,7 +17,7 @@ namespace MusicCatalog.Service
             musicEditorRepository = MusicEditorRepository.GetInstance();
         }
 
-        public List<MusicEditor> GetAllMusicEditors()
+        public List<MusicEditor> GetAll()
         {
             return musicEditorRepository.GetAll();
         }
