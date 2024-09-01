@@ -51,6 +51,7 @@
             </Grid>
 
             <Label Content="Reviews:" Margin="50,30,500,0" FontSize="25" FontWeight="ExtraBold"/>
+            <Label x:Name="lblNoReviews" Content="" Visibility="Collapsed" Foreground="Red" FontSize="20" Margin="45, 10, 0, 0"/>
 
             <StackPanel x:Name="spReviews" Margin="20,0,20,10" Width="400">
                 <Label Content="Reviews And Raitings" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="ExtraBold"/>
