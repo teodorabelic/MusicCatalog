@@ -23,6 +23,8 @@ namespace MusicCatalog.View
         public List<User> users;
         public List<Admin> admins;
         public static HomePageRegisteredWindow homePageRegisteredWindow;
+        public static HomePageAdminWindow homePageAdminWindow;
+        public static HomePageMusicEditorWindow homePageMusicEditorWindow;
         public UserService userService;
         private UserController userController = new UserController();
         private AdminController adminController = new AdminController();
@@ -85,9 +87,9 @@ namespace MusicCatalog.View
                             if (user != null)
                             {
                                 admin = adminController.GetAdminById(user.Id);
-                                homePageRegisteredWindow = new HomePageRegisteredWindow();
+                                homePageAdminWindow = new HomePageAdminWindow();
                                 lblLogIn.Content = "";
-                                homePageRegisteredWindow.Show();
+                                homePageAdminWindow.Show();
                                 this.Hide();
                                 tbClear();
                             }
@@ -98,9 +100,9 @@ namespace MusicCatalog.View
                             if (user != null)
                             {
                                 musicEditor = musicEditorController.GetMusicEditorById(user.Id);
-                                homePageRegisteredWindow = new HomePageRegisteredWindow(); 
+                                homePageMusicEditorWindow = new HomePageMusicEditorWindow(); 
                                 lblLogIn.Content = "";
-                                homePageRegisteredWindow.Show();
+                                homePageMusicEditorWindow.Show();
                                 this.Hide();
                                 tbClear();
                             }
