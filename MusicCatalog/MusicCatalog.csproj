@@ -7,8 +7,5 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-<ItemGroup>
-	<Folder Include="Data\" />
-</ItemGroup>
 
 </Project>
