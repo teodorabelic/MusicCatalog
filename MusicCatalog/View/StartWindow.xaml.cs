@@ -89,7 +89,7 @@ namespace MusicCatalog.View
                                 admin = adminController.GetAdminById(user.Id);
                                 homePageAdminWindow = new HomePageAdminWindow();
                                 lblLogIn.Content = "";
-                                homePageRegisteredWindow.Show();
+                                homePageAdminWindow.Show();
                                 this.Hide();
                                 tbClear();
                             }
@@ -102,7 +102,7 @@ namespace MusicCatalog.View
                                 musicEditor = musicEditorController.GetMusicEditorById(user.Id);
                                 homePageMusicEditorWindow = new HomePageMusicEditorWindow(); 
                                 lblLogIn.Content = "";
-                                homePageRegisteredWindow.Show();
+                                homePageMusicEditorWindow.Show();
                                 this.Hide();
                                 tbClear();
                             }
