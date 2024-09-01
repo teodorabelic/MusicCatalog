@@ -155,5 +155,16 @@ namespace MusicCatalog.View
             DisplayMusicWorkWindow displayMusicWorkWindow = new DisplayMusicWorkWindow(musicWork);
             displayMusicWorkWindow.Show();
         }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string searchText = tbSearch.Text.ToLower();
+
+            var filteredMusicWorks = musicWorks.Where(mw =>
+            mw.Title.ToLower().Contains(searchText) ||
+            mw.Artist.ToLower().Contains(searchText)).ToList();
+
+            LoadDataFromCSV(filteredMusicWorks);
+        }
     }
 }
