@@ -1,4 +1,4 @@
-using MusicCatalog.Controller;
+﻿using MusicCatalog.Controller;
 using MusicCatalog.Model;
 using System;
 using System.Collections.Generic;
@@ -165,6 +165,21 @@ namespace MusicCatalog.View
             mw.Artist.ToLower().Contains(searchText)).ToList();
 
             LoadDataFromCSV(filteredMusicWorks);
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+           
+            MessageBox.Show("Logged out successfully!");
+            this.Hide();
+            StartWindow start = new StartWindow();
+            start.Show();
+        }
+
+        private void CreateUser_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBox.Show("Create User clicked!");
         }
     }
 }

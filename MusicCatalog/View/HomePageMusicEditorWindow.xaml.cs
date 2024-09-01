@@ -166,5 +166,20 @@ namespace MusicCatalog.View
             displayMusicWorkWindow.Show();
         }
 
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBox.Show("Logged out successfully!");
+            this.Hide();
+            StartWindow start = new StartWindow();
+            start.Show();
+        }
+
+        private void CreateUser_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBox.Show("Create User clicked!");
+        }
+
     }
 }
