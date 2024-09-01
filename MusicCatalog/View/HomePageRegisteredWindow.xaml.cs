@@ -1,4 +1,4 @@
-﻿using MusicCatalog.Controller;
+using MusicCatalog.Controller;
 using MusicCatalog.Model;
 using System;
 using System.Collections.Generic;
@@ -158,6 +158,7 @@ namespace MusicCatalog.View
 
         private void FindGenreById(int musicWorkId)
         {
+
 
         }
     }
