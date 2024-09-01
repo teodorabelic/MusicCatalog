@@ -16,4 +16,4 @@
             <StackPanel x:Name="spMusicWorks" Orientation="Vertical"/>
         </ScrollViewer>
     </Grid>
-r
+</Window>

@@ -136,7 +136,10 @@ namespace MusicCatalog.View
                     reviewStackPanel.Children.Add(lblReviewerId);
 
                     spReviews.Children.Add(reviewBorder);
+                    return;
                 }
+                lblNoReviews.Content = "There are no Reviews and Raitings for this music work!";
+                lblNoReviews.Visibility = Visibility.Visible;
             }
         }
     }

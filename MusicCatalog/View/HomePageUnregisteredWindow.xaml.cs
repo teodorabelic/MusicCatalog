@@ -121,16 +121,6 @@ namespace MusicCatalog.View
                 };
                 textPanel.Children.Add(lblPublished);
 
-
-                // Create and add the Text Label
-                Label lblText = new Label
-                {
-                    Content = "Text: " + musicWork.Text,
-                    Margin = new Thickness(0, 0, 0, 5)
-                };
-                textPanel.Children.Add(lblText);
-
-                // Add the StackPanel to the Grid
                 grid.Children.Add(textPanel);
 
                 string projectDirectory = musicWorkController.GetProjectDirectory();
@@ -143,7 +133,7 @@ namespace MusicCatalog.View
                     Width = 110,
 
                     Margin = new Thickness(10),
-                    Source = new BitmapImage(new Uri(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, musicWork.Picture), UriKind.Absolute))
+                    Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute))
                 };
 
                 try
@@ -178,9 +168,6 @@ namespace MusicCatalog.View
             }
         }
 
-
-       
-
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             string searchText = tbSearch.Text.ToLower();
@@ -197,4 +184,5 @@ namespace MusicCatalog.View
             DisplayMusicWorkWindow displayMusicWorkWindow = new DisplayMusicWorkWindow(musicWork);
             displayMusicWorkWindow.Show();
         }
+    }
 }
