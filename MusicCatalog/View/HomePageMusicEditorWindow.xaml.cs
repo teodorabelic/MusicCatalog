@@ -175,10 +175,13 @@ namespace MusicCatalog.View
             start.Show();
         }
 
-        private void CreateUser_Click(object sender, RoutedEventArgs e)
+        private void CreateMusicWork_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
 
-            MessageBox.Show("Create User clicked!");
+            CreateMusicWorkWindow createMusicWorkWindow = new CreateMusicWorkWindow();
+            createMusicWorkWindow.Show();
+            
         }
 
     }
