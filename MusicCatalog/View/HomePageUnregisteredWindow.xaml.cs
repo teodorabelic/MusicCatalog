@@ -197,11 +197,4 @@ namespace MusicCatalog.View
             DisplayMusicWorkWindow displayMusicWorkWindow = new DisplayMusicWorkWindow(musicWork);
             displayMusicWorkWindow.Show();
         }
-
-        private void FindGenreById(int musicWorkId)
-        {
-
-        }
-
-    }
 }

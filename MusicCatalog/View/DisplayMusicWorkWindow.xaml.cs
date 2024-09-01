@@ -3,6 +3,7 @@ using MusicCatalog.Model;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace MusicCatalog.View
@@ -16,12 +17,19 @@ namespace MusicCatalog.View
         private bool isExpanded = false;
         private string fullLyrics;
         private string initialLyrics;
+        private List<ReviewAndRating> reviews;
+        private ReviewAndRatingController reviewAndRatingController = new ReviewAndRatingController();
+        private List<MusicEditor> musicEditors;
+        private MusicEditorController musicEditorController = new MusicEditorController();
 
         public DisplayMusicWorkWindow(MusicWork musicWork)
         {
             InitializeComponent();
             this.musicWork = musicWork;
+            this.reviews = reviewAndRatingController.GetAll();
+            this.musicEditors = musicEditorController.GetAll();
             DisplayMusicWork();
+            DisplayReviewsAndRaitings();
         }
 
         private void DisplayMusicWork()
@@ -35,9 +43,8 @@ namespace MusicCatalog.View
 
             fullLyrics = musicWork.Lyrics.Replace("\\n", Environment.NewLine);
 
-            // Show only the first 4 lines initially
             string[] lines = fullLyrics.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-            initialLyrics = string.Join(Environment.NewLine, lines, 0, Math.Min(4, lines.Length));
+            initialLyrics = string.Join(Environment.NewLine, lines, 0, Math.Min(6, lines.Length));
 
             tbLyrics.Text = initialLyrics;
 
@@ -67,6 +74,70 @@ namespace MusicCatalog.View
             tbLyrics.Text = initialLyrics;
             btnShowMore.Visibility = Visibility.Visible;
             btnShowLess.Visibility = Visibility.Collapsed;
+        }
+
+        private void DisplayReviewsAndRaitings()
+        {
+            spReviews.Children.Clear();
+
+            foreach (ReviewAndRating review in reviews)
+            {
+                if (review.MusicWorkId == musicWork.Id && review.Approved)
+                {
+                    Border reviewBorder = new Border
+                    {
+                        BorderBrush = Brushes.Black,
+                        BorderThickness = new Thickness(1),
+                        Margin = new Thickness(0, 5, 0, 5),
+                        Padding = new Thickness(10),
+                        Background = Brushes.LightGray
+                    };
+
+                    StackPanel reviewStackPanel = new StackPanel
+                    {
+                        Orientation = Orientation.Vertical
+                    };
+                    reviewBorder.Child = reviewStackPanel;
+
+                    int grade = review.Grade;
+                    char star = '★';
+                    string starRating = new string(star, grade);
+
+                    Label lblGrade = new Label
+                    {
+                        Content = starRating,
+                        FontWeight = FontWeights.Bold,
+                        FontSize = 18,
+                        Foreground = Brushes.Yellow,
+                    };
+                    reviewStackPanel.Children.Add(lblGrade);
+
+                    TextBlock txtReview = new TextBlock
+                    {
+                        Text = review.Text,
+                        TextWrapping = TextWrapping.Wrap,
+                        FontWeight = FontWeights.Bold,
+                    };
+                    reviewStackPanel.Children.Add(txtReview);
+
+                    string reviewerString = "";
+                    foreach (MusicEditor musicEditor in musicEditors)
+                    {
+                        if (musicEditor.Id == review.ReviewerId)
+                        {
+                            reviewerString = musicEditor.Name + " " + musicEditor.Surname;
+                        }
+                    }
+                    Label lblReviewerId = new Label
+                    {
+                        Content = "Reviewer: " + reviewerString,
+                        FontWeight = FontWeights.Bold,
+                    };
+                    reviewStackPanel.Children.Add(lblReviewerId);
+
+                    spReviews.Children.Add(reviewBorder);
+                }
+            }
         }
     }
 }
