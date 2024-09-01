@@ -177,8 +177,7 @@ namespace MusicCatalog.View
 
         private void CreateMusicWork_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-
+         
             CreateMusicWorkWindow createMusicWorkWindow = new CreateMusicWorkWindow();
             createMusicWorkWindow.Show();
             
