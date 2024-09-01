@@ -122,16 +122,17 @@ namespace MusicCatalog.Repository
                 {
                     string[] tokens = line.Split('|');
 
-                    if (tokens.Length < 3)
+                    if (tokens.Length != 6)
                     {
                         continue;
                     }
                     ReviewAndRating review = new ReviewAndRating(
                         id: Int32.Parse(tokens[0]),
-                        text: tokens[1],
-                        grade: Int32.Parse(tokens[2]),
-                        musicWorkId: Int32.Parse(tokens[3]),
-                        approved: bool.Parse(tokens[4])
+                        reviewerId: Int32.Parse(tokens[1]),
+                        text: tokens[2],
+                        grade: Int32.Parse(tokens[3]),
+                        musicWorkId: Int32.Parse(tokens[4]),
+                        approved: bool.Parse(tokens[5])
                     );
                     reviews.Add(review);
                 }

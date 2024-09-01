@@ -2,23 +2,31 @@
 using MusicCatalog.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace MusicCatalog.View
 {
-
-    public partial class HomePageUnregisteredWindow : Window
+    /// <summary>
+    /// Interaction logic for HomePageMusicEditorWindow.xaml
+    /// </summary>
+    public partial class HomePageMusicEditorWindow : Window
     {
         public List<MusicWork> musicWorks;
         private MusicWorkController musicWorkController = new MusicWorkController();
         private GenreController genreController = new GenreController();
         public Genre genre;
 
-        public HomePageUnregisteredWindow()
-
+        public HomePageMusicEditorWindow()
         {
             InitializeComponent();
             this.musicWorks = musicWorkController.GetAll();
@@ -27,9 +35,7 @@ namespace MusicCatalog.View
 
         private void LoadDataFromCSV(List<MusicWork> musicWorks)
         {
-
             spMusicWorks.Children.Clear();
-
 
             if (musicWorks == null || musicWorks.Count == 0)
             {
@@ -42,7 +48,6 @@ namespace MusicCatalog.View
 
             foreach (var musicWork in musicWorks)
             {
-
                 Border border = new Border
                 {
                     BorderBrush = Brushes.Black,
@@ -52,10 +57,8 @@ namespace MusicCatalog.View
                     Background = Brushes.LightGray
                 };
 
-
                 Grid grid = new Grid();
                 border.Child = grid;
-
 
                 RowDefinition textRow = new RowDefinition();
                 RowDefinition buttonRow = new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) };
@@ -69,7 +72,6 @@ namespace MusicCatalog.View
                 grid.ColumnDefinitions.Add(textColumn);
                 grid.ColumnDefinitions.Add(imageColumn);
 
-
                 StackPanel textPanel = new StackPanel
                 {
                     Orientation = Orientation.Vertical,
@@ -77,7 +79,6 @@ namespace MusicCatalog.View
                 };
                 Grid.SetColumn(textPanel, 0);
                 Grid.SetRow(textPanel, 0);
-
 
                 Label lblTitle = new Label
                 {
@@ -87,7 +88,6 @@ namespace MusicCatalog.View
                 };
                 textPanel.Children.Add(lblTitle);
 
-
                 Label lblArtist = new Label
                 {
                     Content = "Artist: " + musicWork.Artist,
@@ -95,16 +95,13 @@ namespace MusicCatalog.View
                 };
                 textPanel.Children.Add(lblArtist);
 
-
                 genre = genreController.GetGenreById(musicWork.GenreId);
                 Label lblGenre = new Label
                 {
                     Content = "Genre: " + genre.Type,
-
                     Margin = new Thickness(0, 0, 0, 5)
                 };
                 textPanel.Children.Add(lblGenre);
-
 
                 Label lblFormat = new Label
                 {
@@ -112,7 +109,6 @@ namespace MusicCatalog.View
                     Margin = new Thickness(0, 0, 0, 5)
                 };
                 textPanel.Children.Add(lblFormat);
-
 
                 Label lblPublished = new Label
                 {
@@ -131,9 +127,7 @@ namespace MusicCatalog.View
                 {
                     Height = 110,
                     Width = 110,
-
-                    Margin = new Thickness(10),
-                    Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute))
+                    Margin = new Thickness(10)
                 };
 
                 try
@@ -144,7 +138,6 @@ namespace MusicCatalog.View
                 {
                     MessageBox.Show("Error loading image: " + ex.Message);
                 }
-
 
                 Grid.SetColumn(imgCover, 1);
                 Grid.SetRow(imgCover, 0);
@@ -163,20 +156,8 @@ namespace MusicCatalog.View
                 Grid.SetRow(btnViewMore, 1);
                 grid.Children.Add(btnViewMore);
 
-
                 spMusicWorks.Children.Add(border);
             }
-        }
-
-        private void BtnSearch_Click(object sender, RoutedEventArgs e)
-        {
-            string searchText = tbSearch.Text.ToLower();
-
-            var filteredMusicWorks = musicWorks.Where(mw =>
-            mw.Title.ToLower().Contains(searchText) ||
-            mw.Artist.ToLower().Contains(searchText)).ToList();
-
-            LoadDataFromCSV(filteredMusicWorks);
         }
 
         private void ViewMore_Click(MusicWork musicWork)
@@ -184,5 +165,6 @@ namespace MusicCatalog.View
             DisplayMusicWorkWindow displayMusicWorkWindow = new DisplayMusicWorkWindow(musicWork);
             displayMusicWorkWindow.Show();
         }
+
     }
 }

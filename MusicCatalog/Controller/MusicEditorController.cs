@@ -17,9 +17,9 @@ namespace MusicCatalog.Controller
             musicEditorService = new MusicEditorService();
         }
 
-        public List<MusicEditor> GetAllMusicEditors()
+        public List<MusicEditor> GetAll()
         {
-            return musicEditorService.GetAllMusicEditors();
+            return musicEditorService.GetAll();
         }
 
         public MusicEditor GetMusicEditorById(int id)

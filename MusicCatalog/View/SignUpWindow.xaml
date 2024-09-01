@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicCatalog.View"
         mc:Ignorable="d"
-            WindowStartupLocation="CenterScreen"
-    Title="Sign up" Height="400" Width="400">
+        WindowStartupLocation="CenterScreen"
+        Title="Sign up" Height="400" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

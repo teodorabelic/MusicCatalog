@@ -13,7 +13,7 @@ namespace MusicCatalog.Model
         private Genre genre;
         private List<ReviewAndRating> toDoList;
 
-        public MusicEditor(int id, string name, string surname, string email, string password, List<Genre> genreHistory, RoleEnum.Role role, bool blocked, int rank, Genre genre, List<ReviewAndRating> toDoList)
+        public MusicEditor(int id, string name, string surname, string email, string password, bool blocked, List<Genre> genreHistory, RoleEnum.Role role, int rank, Genre genre, List<ReviewAndRating> toDoList)
             : base(id, name, surname, email, password, blocked, genreHistory, role)
         {
             this.rank = rank;

@@ -10,14 +10,16 @@ namespace MusicCatalog.Model
     public class ReviewAndRating
     {
         private int id;
+        private int reviewerId;
         private string text;
         private int grade;
         private int musicWorkId;
         private bool approved;
 
-        public ReviewAndRating(int id, string text, int grade, int musicWorkId, bool approved)
+        public ReviewAndRating(int id, int reviewerId, string text, int grade, int musicWorkId, bool approved)
         {
             this.id = id;
+            this.reviewerId = reviewerId;
             this.text = text;
             this.grade = grade;
             this.musicWorkId = musicWorkId;
@@ -28,6 +30,12 @@ namespace MusicCatalog.Model
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public int ReviewerId
+        {
+            get { return reviewerId; }
+            set { reviewerId = value; }
         }
         public string Text
         {
