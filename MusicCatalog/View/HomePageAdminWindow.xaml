@@ -8,6 +8,12 @@
         WindowStartupLocation="CenterScreen"
         Title="Music Catalog Home Page" Height="600" Width="800">
     <Grid>
+        <Menu VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="LightGray">
+            <MenuItem Header="Options">
+                <MenuItem Header="Create User" Click="CreateUser_Click"/>
+                <MenuItem Header="Logout" Click="Logout_Click"/>
+            </MenuItem>
+        </Menu>
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Margin="45,50,0,0" VerticalAlignment="Top" Width="600" Height="25"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="700,50,0,0" VerticalAlignment="Top" Width="70" Click="BtnSearch_Click"/>
         <Label Content="Recommended music works for you:" HorizontalAlignment="Left" Margin="45,130,0,0" VerticalAlignment="Top" FontSize="20"/>

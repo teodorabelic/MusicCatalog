@@ -162,8 +162,25 @@ namespace MusicCatalog.View
 
         private void ViewMore_Click(MusicWork musicWork)
         {
-            DisplayMusicWorkWindow displayMusicWorkWindow = new DisplayMusicWorkWindow(musicWork);
+            DisplayMusicWorkRegisteredWindow displayMusicWorkWindow = new DisplayMusicWorkRegisteredWindow(musicWork);
             displayMusicWorkWindow.Show();
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBox.Show("Logged out successfully!");
+            this.Hide();
+            StartWindow start = new StartWindow();
+            start.Show();
+        }
+
+        private void CreateMusicWork_Click(object sender, RoutedEventArgs e)
+        {
+         
+            CreateMusicWorkWindow createMusicWorkWindow = new CreateMusicWorkWindow();
+            createMusicWorkWindow.Show();
+            
         }
 
     }

@@ -32,6 +32,7 @@ namespace MusicCatalog.View
             RoleEnum.Role role = RoleEnum.Role.User;
             userController.CreateUser(tbName.Text, tbSurname.Text, tbEmail.Text,
                     tbPassword.Text, genreHistory, role);
+            MessageBox.Show("Account is created successfully! Turn back on login");
 
             startWindow.Show();
             this.Hide();
