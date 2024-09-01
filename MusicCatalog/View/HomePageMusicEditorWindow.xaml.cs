@@ -162,7 +162,7 @@ namespace MusicCatalog.View
 
         private void ViewMore_Click(MusicWork musicWork)
         {
-            DisplayMusicWorkWindow displayMusicWorkWindow = new DisplayMusicWorkWindow(musicWork);
+            DisplayMusicWorkRegisteredWindow displayMusicWorkWindow = new DisplayMusicWorkRegisteredWindow(musicWork);
             displayMusicWorkWindow.Show();
         }
 

@@ -8,7 +8,7 @@ using System.Windows.Media.Imaging;
 
 namespace MusicCatalog.View
 {
-    public partial class DisplayMusicWorkWindow : Window
+    public partial class DisplayMusicWorkRegisteredWindow : Window
     {
         private MusicWork musicWork;
         private MusicWorkController musicWorkController = new MusicWorkController();
@@ -22,7 +22,7 @@ namespace MusicCatalog.View
         private List<MusicEditor> musicEditors;
         private MusicEditorController musicEditorController = new MusicEditorController();
 
-        public DisplayMusicWorkWindow(MusicWork musicWork)
+        public DisplayMusicWorkRegisteredWindow(MusicWork musicWork)
         {
             InitializeComponent();
             this.musicWork = musicWork;
@@ -138,8 +138,11 @@ namespace MusicCatalog.View
                     spReviews.Children.Add(reviewBorder);
                     return;
                 }
-                lblNoReviews.Content = "There are no Reviews and Raitings for this music work!";
-                lblNoReviews.Visibility = Visibility.Visible;
+                else
+                {
+                    lblNoReviews.Content = "There are no Reviews and Raitings for this music work!";
+                    lblNoReviews.Visibility = Visibility.Visible;
+                }
             }
         }
     }
