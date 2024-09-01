@@ -74,7 +74,7 @@ namespace MusicCatalog.View
                             user = person as User;
                             if (user != null)
                             {
-                                homePageRegisteredWindow = new HomePageRegisteredWindow();
+                                homePageRegisteredWindow = new HomePageRegisteredWindow(user);
                                 lblLogIn.Content = "";
                                 homePageRegisteredWindow.Show();
                                 this.Hide();
