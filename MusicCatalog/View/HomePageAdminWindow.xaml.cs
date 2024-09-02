@@ -25,6 +25,7 @@ namespace MusicCatalog.View
         private MusicWorkController musicWorkController = new MusicWorkController();
         private GenreController genreController = new GenreController();
         public Genre genre;
+        public User user;
         private Admin admin;
 
         public HomePageAdminWindow(Admin admin)
@@ -164,7 +165,7 @@ namespace MusicCatalog.View
 
         private void ViewMore_Click(MusicWork musicWork)
         {
-            DisplayMusicWorkRegisteredWindow displayMusicWorkRegisteredWindow = new DisplayMusicWorkRegisteredWindow(musicWork);
+            DisplayMusicWorkRegisteredWindow displayMusicWorkRegisteredWindow = new DisplayMusicWorkRegisteredWindow(musicWork, user);
             displayMusicWorkRegisteredWindow.Show();
         }
 

@@ -61,7 +61,7 @@ namespace MusicCatalog.Repository
         {
             try
             {
-                StreamWriter file = new StreamWriter("../../../Data/ReviewAndRaitingFile.csv", false);
+                StreamWriter file = new StreamWriter("../../../Data/ReviewAndRatingFile.csv", false);
 
                 foreach (ReviewAndRating review in reviews)
                 {
