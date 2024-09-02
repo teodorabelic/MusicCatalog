@@ -25,11 +25,12 @@ namespace MusicCatalog.View
         private MusicWorkController musicWorkController = new MusicWorkController();
         private GenreController genreController = new GenreController();
         public Genre genre;
-
-        public HomePageMusicEditorWindow()
+        private MusicEditor musicEditor;
+        public HomePageMusicEditorWindow(MusicEditor musicEditor)
         {
             InitializeComponent();
             this.musicWorks = musicWorkController.GetAll();
+            this.musicEditor = musicEditor;
             LoadDataFromCSV(musicWorks);
         }
 
