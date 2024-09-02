@@ -26,11 +26,13 @@ namespace MusicCatalog.View
         private GenreController genreController = new GenreController();
         public Genre genre;
         public User user;
+        private Admin admin;
 
-        public HomePageAdminWindow()
+        public HomePageAdminWindow(Admin admin)
         {
             InitializeComponent();
             this.musicWorks = musicWorkController.GetAll();
+            this.admin = admin;
             LoadDataFromCSV(musicWorks);
         }
 
