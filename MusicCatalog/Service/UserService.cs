@@ -31,10 +31,11 @@ namespace MusicCatalog.Service
             return userRepository.GetById(id);
         }
 
-        public void CreateUser(string name, string surname, string email, string password, List<Genre> genreHistory, RoleEnum.Role role)
+        public User CreateUser(string name, string surname, string email, string password, List<Genre> genreHistory, RoleEnum.Role role)
         {
             User user = new User
             {
+                Id = userRepository.GenerateId(),
                 Name = name,
                 Surname = surname,
                 Email = email,
@@ -45,6 +46,7 @@ namespace MusicCatalog.Service
             };
 
             userRepository.Create(user);
+            return user;
         }
 
         public void UpdateUser(int id, string name, string surname, string email, string password, bool blocked, List<Genre> genreHistory, RoleEnum.Role role)

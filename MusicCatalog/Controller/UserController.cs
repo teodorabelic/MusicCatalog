@@ -33,9 +33,10 @@ namespace MusicCatalog.Controller
             return user;
         }
 
-        public void CreateUser(string name, string surname, string email, string password, List<Genre> genreHistory, RoleEnum.Role role)
+        public User CreateUser(string name, string surname, string email, string password, List<Genre> genreHistory, RoleEnum.Role role)
         {
-            userService.CreateUser(name, surname, email, password, genreHistory, role);
+            return userService.CreateUser(name, surname, email, password, genreHistory, role);
+            
         }
 
         public void UpdateUser(int id, string name, string surname, string email, string password, bool blocked, List<Genre> genreHistory, RoleEnum.Role role)

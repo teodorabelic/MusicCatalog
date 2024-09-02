@@ -10,7 +10,7 @@
     <Grid>
         <Menu VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="LightGray">
             <MenuItem Header="Options">
-                <MenuItem Header="Create User" Click="CreateUser_Click"/>
+                <MenuItem Header="Create music editor" Click="CreateMusicEditor_Click"/>
                 <MenuItem Header="Logout" Click="Logout_Click"/>
             </MenuItem>
         </Menu>

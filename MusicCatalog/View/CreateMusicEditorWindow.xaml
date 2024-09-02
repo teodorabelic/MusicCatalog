@@ -1,0 +1,57 @@
+﻿<Window x:Class="MusicCatalog.View.CreateMusicEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicCatalog.View"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Create Music Editor" Height="400" Width="400">
+    <Grid Margin="20">
+        <!-- Define Rows and Columns -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Title -->
+        <Label Content="Create Your Account" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,10,0,20"/>
+
+        <!-- Name -->
+        <Label Content="Name:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="tbName" Grid.Row="1" Grid.Column="1" Width="200" Margin="10,0,0,0" FontSize="14"/>
+
+        <!-- Surname -->
+        <Label Content="Surname:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="tbSurname" Grid.Row="2" Grid.Column="1" Width="200" Margin="10,0,0,0" FontSize="14"/>
+
+        <!-- Email -->
+        <Label Content="Email:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="tbEmail" Grid.Row="3" Grid.Column="1" Width="200" Margin="10,0,0,0" FontSize="14"/>
+
+        <!-- Password -->
+        <Label Content="Password:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="tbPassword" Grid.Row="4" Grid.Column="1" Width="200" Margin="10,0,0,0" FontSize="14"/>
+
+        <!-- Genre -->
+        <Label Content="Genre:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" FontSize="14"/>
+        <ComboBox x:Name="genreComboBox" Grid.Row="5" Grid.Column="1" Width="200" Margin="10,0,0,0" FontSize="14"/>
+
+        <!-- Submit Button -->
+        <Button x:Name="btnSubmit" Content="Submit" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="100" FontSize="16" Margin="0,20,0,0" Click="btnSubmit_Click"/>
+
+        <!-- Error Message -->
+        <Label x:Name="lblMissingData" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="Red" FontSize="14"/>
+    </Grid>
+</Window>

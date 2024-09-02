@@ -189,10 +189,12 @@ namespace MusicCatalog.View
             start.Show();
         }
 
-        private void CreateUser_Click(object sender, RoutedEventArgs e)
+        private void CreateMusicEditor_Click(object sender, RoutedEventArgs e)
         {
+            CreateMusicEditorWindow create = new CreateMusicEditorWindow();
+            create.Show();
 
-            MessageBox.Show("Create User clicked!");
+
         }
     }
 }
