@@ -25,6 +25,15 @@ namespace MusicCatalog.Model
             this.musicWorkId = musicWorkId;
             this.approved = approved;
         }
+        public ReviewAndRating(int reviewerId, string text, int grade, int musicWorkId, bool approved)
+        {
+            this.id = 0; 
+            this.reviewerId = reviewerId;
+            this.text = text;
+            this.grade = grade;
+            this.musicWorkId = musicWorkId;
+            this.approved = approved;
+        }
 
         public int Id
         {
@@ -60,7 +69,7 @@ namespace MusicCatalog.Model
 
         public String StringToCsv()
         {
-            return $"{id}|{text}|{grade}|{musicWorkId}|{approved}";
+            return $"{id}|{reviewerId}|{text}|{grade}|{musicWorkId}|{approved}";
         }
     }
 }

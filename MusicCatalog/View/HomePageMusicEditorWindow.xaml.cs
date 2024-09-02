@@ -25,11 +25,13 @@ namespace MusicCatalog.View
         private MusicWorkController musicWorkController = new MusicWorkController();
         private GenreController genreController = new GenreController();
         public Genre genre;
+        public User user;
 
         public HomePageMusicEditorWindow()
         {
             InitializeComponent();
             this.musicWorks = musicWorkController.GetAll();
+            
             LoadDataFromCSV(musicWorks);
         }
 
@@ -162,7 +164,7 @@ namespace MusicCatalog.View
 
         private void ViewMore_Click(MusicWork musicWork)
         {
-            DisplayMusicWorkRegisteredWindow displayMusicWorkWindow = new DisplayMusicWorkRegisteredWindow(musicWork);
+            DisplayMusicWorkRegisteredWindow displayMusicWorkWindow = new DisplayMusicWorkRegisteredWindow(musicWork, user);
             displayMusicWorkWindow.Show();
         }
 
