@@ -51,11 +51,12 @@ namespace MusicCatalog.View
             }
 
             ReviewAndRating newReview = new ReviewAndRating(
+                id: -1,
                 reviewerId: user.Id,
                 text: reviewText,
                 grade: grade,
                 musicWorkId: musicWork.Id,
-                approved: false
+                approved: true
             );
 
             reviewAndRatingController.Create(newReview);

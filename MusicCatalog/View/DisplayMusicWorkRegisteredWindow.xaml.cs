@@ -81,10 +81,6 @@ namespace MusicCatalog.View
             btnShowLess.Visibility = Visibility.Collapsed;
         }
 
-
-
-
-
         private void DisplayReviewsAndRaitings()
         {
             spReviews.Children.Clear();

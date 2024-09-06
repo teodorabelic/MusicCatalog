@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicCatalog.View"
         mc:Ignorable="d"
-            WindowStartupLocation="CenterScreen"
-    Title="Music Catalog Home Page" Height="600" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Music Catalog Home Page" Height="600" Width="800">
     <Grid>
         <Menu VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="LightGray">
             <MenuItem Header="Options">
