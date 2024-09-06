@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicCatalog.View"
         mc:Ignorable="d"
-        Title="Create Review" Height="400" Width="400" Background="LightGray">
+        Title="Create Review" Height="400" Width="400" Background="LightGray"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#007ACC"/>

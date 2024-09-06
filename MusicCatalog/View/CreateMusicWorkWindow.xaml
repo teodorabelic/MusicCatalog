@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicCatalog.View"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Create Music Work" Height="500" Width="800">
+    
     <Grid Margin="10">
         <Label Content="Music Work Title:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
         <TextBox x:Name="musicWorkTitleTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,10,0,0" Width="400"/>
