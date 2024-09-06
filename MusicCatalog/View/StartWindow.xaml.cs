@@ -74,7 +74,7 @@ namespace MusicCatalog.View
                             user = person as User;
                             if (user != null)
                             {
-                                homePageRegisteredWindow = new HomePageRegisteredWindow();
+                                homePageRegisteredWindow = new HomePageRegisteredWindow(user);
                                 lblLogIn.Content = "";
                                 homePageRegisteredWindow.Show();
                                 this.Hide();
@@ -87,7 +87,7 @@ namespace MusicCatalog.View
                             if (user != null)
                             {
                                 admin = adminController.GetAdminById(user.Id);
-                                homePageAdminWindow = new HomePageAdminWindow();
+                                homePageAdminWindow = new HomePageAdminWindow(admin);
                                 lblLogIn.Content = "";
                                 homePageAdminWindow.Show();
                                 this.Hide();
@@ -100,7 +100,7 @@ namespace MusicCatalog.View
                             if (user != null)
                             {
                                 musicEditor = musicEditorController.GetMusicEditorById(user.Id);
-                                homePageMusicEditorWindow = new HomePageMusicEditorWindow(); 
+                                homePageMusicEditorWindow = new HomePageMusicEditorWindow(musicEditor); 
                                 lblLogIn.Content = "";
                                 homePageMusicEditorWindow.Show();
                                 this.Hide();

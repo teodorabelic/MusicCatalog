@@ -1,4 +1,4 @@
-using MusicCatalog.Controller;
+﻿using MusicCatalog.Controller;
 using MusicCatalog.Model;
 using System;
 using System.Collections.Generic;
@@ -15,11 +15,13 @@ namespace MusicCatalog.View
         private MusicWorkController musicWorkController = new MusicWorkController();
         private GenreController genreController = new GenreController();
         public Genre genre;
+        private User user;
 
-        public HomePageRegisteredWindow()
+        public HomePageRegisteredWindow(User user)
         {
             InitializeComponent();
             this.musicWorks = musicWorkController.GetAll();
+            this.user = user;
             LoadDataFromCSV(musicWorks);
         }
 
@@ -152,7 +154,7 @@ namespace MusicCatalog.View
 
         private void ViewMore_Click(MusicWork musicWork)
         {
-            DisplayMusicWorkRegisteredWindow displayMusicWorkRegisteredWindow = new DisplayMusicWorkRegisteredWindow(musicWork);
+            DisplayMusicWorkRegisteredWindow displayMusicWorkRegisteredWindow = new DisplayMusicWorkRegisteredWindow(musicWork, user);
             displayMusicWorkRegisteredWindow.Show();
         }
 
@@ -165,6 +167,21 @@ namespace MusicCatalog.View
             mw.Artist.ToLower().Contains(searchText)).ToList();
 
             LoadDataFromCSV(filteredMusicWorks);
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+           
+            MessageBox.Show("Logged out successfully!");
+            this.Hide();
+            StartWindow start = new StartWindow();
+            start.Show();
+        }
+
+        private void CreateUser_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBox.Show("Create User clicked!");
         }
     }
 }

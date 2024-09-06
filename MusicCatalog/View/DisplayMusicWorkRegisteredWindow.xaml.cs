@@ -20,14 +20,19 @@ namespace MusicCatalog.View
         private List<ReviewAndRating> reviews;
         private ReviewAndRatingController reviewAndRatingController = new ReviewAndRatingController();
         private List<MusicEditor> musicEditors;
+        private List<User> users;
+        private User user;
         private MusicEditorController musicEditorController = new MusicEditorController();
+        private UserController userController = new UserController();
 
-        public DisplayMusicWorkRegisteredWindow(MusicWork musicWork)
+        public DisplayMusicWorkRegisteredWindow(MusicWork musicWork, User user)
         {
             InitializeComponent();
+            this.user = user;
             this.musicWork = musicWork;
             this.reviews = reviewAndRatingController.GetAll();
             this.musicEditors = musicEditorController.GetAll();
+            this.users = userController.GetAllUsers();
             DisplayMusicWork();
             DisplayReviewsAndRaitings();
         }
@@ -76,14 +81,22 @@ namespace MusicCatalog.View
             btnShowLess.Visibility = Visibility.Collapsed;
         }
 
+
+
+
+
         private void DisplayReviewsAndRaitings()
         {
             spReviews.Children.Clear();
-
+            bool hasReviews = false;
             foreach (ReviewAndRating review in reviews)
             {
+               
                 if (review.MusicWorkId == musicWork.Id && review.Approved)
                 {
+                 
+                    hasReviews = true;
+
                     Border reviewBorder = new Border
                     {
                         BorderBrush = Brushes.Black,
@@ -120,12 +133,13 @@ namespace MusicCatalog.View
                     };
                     reviewStackPanel.Children.Add(txtReview);
 
-                    string reviewerString = "";
-                    foreach (MusicEditor musicEditor in musicEditors)
+                    string reviewerString = "Unknown Reviewer";
+                    foreach (User user in users)
                     {
-                        if (musicEditor.Id == review.ReviewerId)
+                        if (user.Id == review.ReviewerId)
                         {
-                            reviewerString = musicEditor.Name + " " + musicEditor.Surname;
+                            reviewerString = user.Name + " " + user.Surname;
+                            break; 
                         }
                     }
                     Label lblReviewerId = new Label
@@ -136,14 +150,26 @@ namespace MusicCatalog.View
                     reviewStackPanel.Children.Add(lblReviewerId);
 
                     spReviews.Children.Add(reviewBorder);
-                    return;
-                }
-                else
-                {
-                    lblNoReviews.Content = "There are no Reviews and Raitings for this music work!";
-                    lblNoReviews.Visibility = Visibility.Visible;
                 }
             }
+
+            if (!hasReviews)
+            {
+                lblNoReviews.Content = "There are no Reviews and Ratings for this music work!";
+                lblNoReviews.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lblNoReviews.Visibility = Visibility.Collapsed;
+            }
+        }
+        
+
+        private void btnAddReview_Click(object sender, RoutedEventArgs e)
+        {
+            CreateReviewWindow createReview = new CreateReviewWindow(musicWork, user);
+            createReview.Show();
+            this.Hide();
         }
     }
 }

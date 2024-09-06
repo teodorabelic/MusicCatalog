@@ -27,6 +27,7 @@ namespace MusicCatalog.View
             musicWorkController = new MusicWorkController();
             genreController = new GenreController();
             LoadGenres();
+
         }
 
         private void LoadGenres()
@@ -40,14 +41,28 @@ namespace MusicCatalog.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greška pri učitavanju žanrova: {ex.Message}");
+                MessageBox.Show($"Error loading genres: {ex.Message}");
             }
         }
 
+        public event Action<MusicWork> MusicWorkCreated;
         private void CreateMusicWorkButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                
+                if (string.IsNullOrWhiteSpace(musicWorkTitleTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(artistTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(textTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(pictureTextBox.Text) ||
+                    genreComboBox.SelectedValue == null ||
+                    string.IsNullOrWhiteSpace(formatTextBox.Text) ||
+                    publicationDatePicker.SelectedDate == null)
+                {
+                    MessageBox.Show("Please fill in all fields.");
+                    return;
+                }
+
                 string title = musicWorkTitleTextBox.Text;
                 string artist = artistTextBox.Text;
                 string text = textTextBox.Text;
@@ -57,7 +72,7 @@ namespace MusicCatalog.View
                 DateTime publicationDate = publicationDatePicker.SelectedDate ?? DateTime.Now;
 
                 MusicWork newMusicWork = new MusicWork(
-                    id: 0, 
+                    id: 0,
                     title: title,
                     artist: artist,
                     lyrics: text,
@@ -68,19 +83,19 @@ namespace MusicCatalog.View
                 );
 
                 musicWorkController.CreateMusicWork(newMusicWork);
-
-                MessageBox.Show("Muzičko delo je uspešno kreirano.");
+                MusicWorkCreated?.Invoke(newMusicWork);
+                MessageBox.Show("Music work has been successfully created.");
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greška pri kreiranju muzičkog dela: {ex.Message}");
+                MessageBox.Show($"Error creating music work: {ex.Message}");
             }
         }
 
+
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
-            // Implementirajte funkcionalnost za izbor slike, npr. otvorite dijalog za izbor datoteke
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog
             {
                 Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp"
