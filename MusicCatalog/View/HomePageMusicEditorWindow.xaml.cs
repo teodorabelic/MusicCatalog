@@ -182,8 +182,15 @@ namespace MusicCatalog.View
         {
          
             CreateMusicWorkWindow createMusicWorkWindow = new CreateMusicWorkWindow();
+            createMusicWorkWindow.MusicWorkCreated += OnMusicWorkCreated;
             createMusicWorkWindow.Show();
             
+        }
+
+        private void OnMusicWorkCreated(MusicWork newMusicWork)
+        {
+            this.musicWorks = musicWorkController.GetAll();
+            LoadDataFromCSV(musicWorks);
         }
 
     }

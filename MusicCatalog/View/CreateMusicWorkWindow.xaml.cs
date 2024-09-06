@@ -45,6 +45,7 @@ namespace MusicCatalog.View
             }
         }
 
+        public event Action<MusicWork> MusicWorkCreated;
         private void CreateMusicWorkButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -82,7 +83,7 @@ namespace MusicCatalog.View
                 );
 
                 musicWorkController.CreateMusicWork(newMusicWork);
-
+                MusicWorkCreated?.Invoke(newMusicWork);
                 MessageBox.Show("Music work has been successfully created.");
                 this.Close();
             }
