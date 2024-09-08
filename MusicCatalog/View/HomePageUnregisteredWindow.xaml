@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Music Catalog Home Page" Height="600" Width="800">
+        Title="Music Catalog Home Page" Height="600" Width="850">
     <Grid>
         <Menu VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="LightGray">
             <MenuItem Header="Options">
@@ -14,8 +14,8 @@
             </MenuItem>
         </Menu>
         <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Margin="45,50,0,0" VerticalAlignment="Top" Width="600" Height="25"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="700,50,0,0" VerticalAlignment="Top" Width="70" Click="BtnSearch_Click"/>
-
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="680,50,0,0" VerticalAlignment="Top" Width="70" Click="BtnSearch_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="760,50,0,0" VerticalAlignment="Top" Width="70" Click="BtnDelete_Click"/>
         <Label Content="Recommended music works for you:" HorizontalAlignment="Left" Margin="45,130,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label x:Name="lblMessage" Content="" Visibility="Collapsed" Foreground="Red" FontSize="10" Margin="45, 160, 0, 0"/>
 
