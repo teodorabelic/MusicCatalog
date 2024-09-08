@@ -183,5 +183,11 @@ namespace MusicCatalog.View
 
             MessageBox.Show("Create User clicked!");
         }
+
+         private void BtnDelete_Click(object sender, RoutedEventArgs e)
+         {
+             tbSearch.Text = string.Empty;
+             LoadDataFromCSV(musicWorks);
+         }
     }
 }
