@@ -203,6 +203,11 @@ namespace MusicCatalog.View
             this.musicWorks = musicWorkController.GetAll();
             LoadDataFromCSV(musicWorks);
         }
+         private void BtnDelete_Click(object sender, RoutedEventArgs e)
+         {
+             tbSearch.Text = string.Empty;
+             LoadDataFromCSV(musicWorks);
+         }
 
     }
 }
