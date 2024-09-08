@@ -1,4 +1,4 @@
-﻿using MusicCatalog.Controller;
+using MusicCatalog.Controller;
 using MusicCatalog.Model;
 using System;
 using System.Collections.Generic;
@@ -189,12 +189,17 @@ namespace MusicCatalog.View
             start.Show();
         }
 
-        private void CreateMusicEditor_Click(object sender, RoutedEventArgs e)
+        private void CreateUser_Click(object sender, RoutedEventArgs e)
         {
-            CreateMusicEditorWindow create = new CreateMusicEditorWindow();
-            create.Show();
 
-
+            MessageBox.Show("Create User clicked!");
         }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            tbSearch.Text = string.Empty;
+            LoadDataFromCSV(musicWorks);
+        }
+
     }
 }
