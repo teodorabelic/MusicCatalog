@@ -187,14 +187,14 @@ namespace MusicCatalog.View
 
         private void LogIn_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+           
             StartWindow start = new StartWindow();
             start.Show();
         }
 
         private void CreateUser_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            
             SignUpWindow signUpWindow = new SignUpWindow();
             signUpWindow.Show();
         }
