@@ -47,7 +47,7 @@ namespace MusicCatalog.Repository
         {
             try
             {
-                using (StreamWriter file = new StreamWriter("../../../Data/MusicEditorFile.csv", false))
+                using (StreamWriter file = new StreamWriter("../../../Data/MusicEditorFile.csv", append: true))
                 {
                     foreach (MusicEditor editor in musicEditors)
                     {
@@ -94,7 +94,6 @@ namespace MusicCatalog.Repository
 
         public List<MusicEditor> Create(MusicEditor editor)
         {
-            editor.Id = GenerateId();
             musicEditors.Add(editor);
             Save();
             return musicEditors;
@@ -139,7 +138,7 @@ namespace MusicCatalog.Repository
                             genreHistory: genreHistory,
                             role: (ModelEnum.RoleEnum.Role)Enum.Parse(typeof(ModelEnum.RoleEnum.Role), tokens[7]),
                             rank: int.Parse(tokens[8]),
-                            genre: new Genre(int.Parse(tokens[9]), "Unknown"), // Assuming genre information; adjust if necessary
+                            genre: new Genre(int.Parse(tokens[9]), "Unknown"), 
                             toDoList: toDoList
                         );
 

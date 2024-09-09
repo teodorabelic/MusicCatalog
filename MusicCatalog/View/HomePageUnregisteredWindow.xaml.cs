@@ -198,5 +198,12 @@ namespace MusicCatalog.View
             SignUpWindow signUpWindow = new SignUpWindow();
             signUpWindow.Show();
         }
+
+         private void BtnDelete_Click(object sender, RoutedEventArgs e)
+         {
+             tbSearch.Text = string.Empty;
+             LoadDataFromCSV(musicWorks);
+         }
     }
+    
 }

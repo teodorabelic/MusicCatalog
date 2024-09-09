@@ -37,7 +37,7 @@ namespace MusicCatalog.Repository
             return users.FirstOrDefault(user => user.Id == id);
         }
 
-        private int GenerateId()
+        public int GenerateId()
         {
             return users.Any() ? users.Max(user => user.Id) + 1 : 1;
         }
@@ -91,7 +91,7 @@ namespace MusicCatalog.Repository
 
         public List<User> Create(User user)
         {
-            user.Id = GenerateId();
+            //user.Id = GenerateId();
             users.Add(user);
             Save();
             return users;

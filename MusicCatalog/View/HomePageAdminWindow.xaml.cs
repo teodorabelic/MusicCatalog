@@ -1,4 +1,4 @@
-﻿using MusicCatalog.Controller;
+using MusicCatalog.Controller;
 using MusicCatalog.Model;
 using System;
 using System.Collections.Generic;
@@ -194,5 +194,12 @@ namespace MusicCatalog.View
 
             MessageBox.Show("Create User clicked!");
         }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            tbSearch.Text = string.Empty;
+            LoadDataFromCSV(musicWorks);
+        }
+
     }
 }
