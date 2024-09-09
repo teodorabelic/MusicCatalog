@@ -44,17 +44,28 @@ namespace MusicCatalog.View
                 return;
             }
 
+            List<User> userList = userController.GetAllUsers(); 
+
+            
+            bool userExists = userList.Any(user => user.Email == tbEmail.Text);
+
+            if (userExists)
+            {
+                
+                MessageBox.Show("Username already exists! Please choose another one.");
+                return;
+            }
+
             try
             {
                 List<Genre> genreHistory = new List<Genre>();
                 List<ReviewAndRating> toDoList = new List<ReviewAndRating>();
                 RoleEnum.Role role = RoleEnum.Role.MusicEditor;
 
-                // Kreirajte korisnika
+              
                 User user = userController.CreateUser(tbName.Text, tbSurname.Text, tbEmail.Text, tbPassword.Text, genreHistory, role);
               
 
-                // Dohvatite odabrani žanr iz ComboBox-a
                 Genre selectedGenre = genreComboBox.SelectedItem as Genre;
                 if (selectedGenre == null)
                 {
@@ -62,7 +73,6 @@ namespace MusicCatalog.View
                     return;
                 }
 
-                // Kreirajte MusicEditor objekat
                 MusicEditor editor = new MusicEditor(
                     id: user.Id,
                     name: tbName.Text,

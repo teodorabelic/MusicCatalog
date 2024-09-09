@@ -28,6 +28,17 @@ namespace MusicCatalog.View
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            List<User> userList = userController.GetAllUsers(); 
+
+            bool userExists = userList.Any(user => user.Email == tbEmail.Text);
+
+            if (userExists)
+            {
+               
+                MessageBox.Show("Username already exists! Please choose another one.");
+                return;
+            }
+
             List<Genre> genreHistory = new List<Genre>();
             RoleEnum.Role role = RoleEnum.Role.User;
             userController.CreateUser(tbName.Text, tbSurname.Text, tbEmail.Text,
