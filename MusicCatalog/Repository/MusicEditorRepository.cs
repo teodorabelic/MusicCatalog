@@ -19,6 +19,7 @@ namespace MusicCatalog.Repository
             musicEditors = LoadFromFile();
         }
 
+        // probica
         public static MusicEditorRepository GetInstance()
         {
             if (instance == null)
